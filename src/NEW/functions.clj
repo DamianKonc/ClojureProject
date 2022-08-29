@@ -10,10 +10,19 @@
 
 #(println "hello" %)
 #(println %1 %2 %&)
-(println "dupa")
 
 (def increment (fn [x] (+ x 1)))
 
 (defn increment_set
-  []
-  (map increment [1 2 3]))
+  [x]
+  (map increment x))
+
+((defn DataTypes []
+  (def a 1)
+  (def b 1.25)
+
+   (println a)
+   (println b)
+  ))
+
+(DataTypes)
