@@ -16,7 +16,6 @@
 
     (if (isCodeValid code)
       (do
-        (println "The code is valid")
         (def discount (:Discount validCoupon))
         (doseq [car cars]
           (def carType (first car))
@@ -29,8 +28,14 @@
         )
       (do
         (println "The code is invalid")
+        (doseq [car cars]
+          (def carType (first car))
+          (def price (last car))
+          (if (<= price budget)
+            (println "The" carType "costs" price))
+          )
         )
 )
   )
 
-(getCarPrices 1000000 "20Percent")
+(getCarPrices 50000 "20ercent")
