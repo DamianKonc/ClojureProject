@@ -5,8 +5,17 @@
   "I don't do a whole lot ... yet."
   [& args]
   (println "Hello, World!"))
+(+ 1 1)
 
-(println + 1 1)
+
+
+
+
+
+
+
+
+
 
 
 
