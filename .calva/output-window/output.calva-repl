@@ -18,11 +18,26 @@
 clj꞉clojureproject.core꞉>  ; Use `alt+enter` to evaluate
 ; Jack-in done.
 clj꞉clojureproject.core꞉> 
-; Evaluating file: core.clj
 2
+clj꞉clojureproject.core꞉> 
+Hello, World!
 nil
 clj꞉clojureproject.core꞉> 
-1
+; Evaluating file: core.clj
+Hello, World!
+2
+clj꞉clojureproject.core꞉> 
+; Evaluating file: core.clj
+Hello, World!
+2
+clj꞉clojureproject.core꞉> 
+; Evaluating file: core.clj
+Hello, World!
+2
+clj꞉clojureproject.core꞉> 
+; Evaluating file: core.clj
+Hello, World!
+2
 clj꞉clojureproject.core꞉> 
 ; Jacking in...
 ; nREPL Connection was closed
@@ -39,12 +54,7 @@ clj꞉clojureproject.core꞉> 
 clj꞉clojureproject.core꞉> 
 ; Jack-in done.
 clj꞉clojureproject.core꞉> 
-2
-clj꞉clojureproject.core꞉> 
-; Syntax error compiling at (d:\Programowanie\Moje\ClojureProject\src\clojureproject\core.clj:1:7981).
-; Unable to resolve symbol: Hello in this context
-clj꞉clojureproject.core꞉> 
-#function[clojure.core/println]
-clj꞉clojureproject.core꞉> 
-2
-clj꞉clojureproject.core꞉> 
+; Evaluating file: core.clj
+Hello, World!
+nil
+clj꞉app꞉> 
