@@ -1,5 +1,0 @@
--m
-cljs.main
---compile
-project.core
---repl
