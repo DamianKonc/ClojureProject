@@ -1,2 +1,15 @@
 {:deps {org.clojure/clojurescript {:mvn/version "1.10.773"}}
- :paths ["src"]}
+ :paths ["src"]
+
+:aliases
+  {:dev {:main-opts ["-m" "cljs.main"
+                     "--compile" "project.core"
+                     "--repl"]}
+   :new {:extra-deps {seancorfield/clj-new
+                     {:mvn/version "1.1.243"}}
+        :exec-fn clj-new/create
+        :exec-args {}}
+   }}
+   
+
+;; clj -m cljs.main --compile project.core --repl
