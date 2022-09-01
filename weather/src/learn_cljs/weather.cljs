@@ -15,6 +15,23 @@
 (defn get-app-element []
   (gdom/getElement "app"))
 
+
+(def input (.createElement js/document "input"))           ;; <2>
+;; #'learn-cljs.weather/input                              ;; <3>
+
+(.appendChild (.-body js/document) input)
+;; #object[HTMLInputElement [object HTMLInputElement]]
+
+(set! (.-placeholder input) "Enter something")             ;; <4>
+;; "Enter something"
+
+(defn handle-input [e]                                     ;; <5>
+  (swap! app-state assoc :text (-> e .-target .-value)))
+;; #'learn-cljs.weather/handle-input
+
+(set! (.-onkeyup input) handle-input)
+;; #object[learn_cljs$weather$handle_input ...]
+
 (defn hello-world []
   [:div
   
