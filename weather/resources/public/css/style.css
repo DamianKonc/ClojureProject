@@ -1,2 +1,6 @@
 /* some style */
 
+body {
+  color: white;
+  background-color: rgb(91, 91, 91);
+}

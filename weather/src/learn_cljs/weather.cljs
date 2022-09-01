@@ -10,14 +10,17 @@
 
 ;; define your app data so that it doesn't get over-written on reload
 (defonce app-state (atom {:text "Hello world!"}))
+(defonce greeter (atom {:text "Hello Man"}))
 
 (defn get-app-element []
   (gdom/getElement "app"))
 
 (defn hello-world []
   [:div
+  
    [:h1 (:text @app-state)]
-   [:h3 "Edit this in src/learn_cljs/weather.cljs and watch it change!"]])
+   [:h3 "Edit this in src/learn_cljs/weather.cljs and watch it change!"]
+    [:p (:text @greeter)]])
 
 (defn mount [el]
   (rdom/render [hello-world] el))
