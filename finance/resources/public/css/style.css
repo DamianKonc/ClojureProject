@@ -1,2 +1,30 @@
 /* some style */
 
+* {
+  font-size: 125%;
+}
+
+body {
+  color: white;
+  background-color: rgb(67, 67, 67);
+  padding: 4rem 3rem;
+}
+
+.halo {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header__logo {
+  font-size: 3rem;
+  color: white;
+  text-decoration: none;
+}
+
+.navigation__list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  font-size: 2rem;
+}
