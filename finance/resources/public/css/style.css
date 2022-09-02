@@ -13,7 +13,8 @@ body {
 .halo {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 10%;
 }
 
 .header__logo {
@@ -25,6 +26,34 @@ body {
 .navigation__list {
   list-style: none;
   display: flex;
-  gap: 20px;
-  font-size: 2rem;
+  gap: 3%;
+  font-size: 1.5rem;
+}
+
+.navigation__list_el {
+  padding: 10px 15px;
+  border: 1px solid white;
+}
+
+.navigation__list_el:hover {
+  cursor: pointer;
+}
+
+.add {
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number-Input {
+  font-size: 1.4rem;
+}
+
+.add_btn {
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.add_btn:hover {
+  cursor: pointer;
 }

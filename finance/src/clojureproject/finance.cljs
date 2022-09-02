@@ -4,37 +4,79 @@
    [reagent.core :as reagent :refer [atom]]
    [reagent.dom :as rdom]))
 
-(println "This text is printed from src/clojureproject/finance.cljs. Go ahead and edit it and see reloading in action.")
 
-(defn multiply [a b] (* a b))
 
 ;; define your app data so that it doesn't get over-written on reload
-(defonce app-state (atom {:text "Hello world!"}))
+(defonce app-state (atom {:first-number 0
+                          :second-number 0 
+                          :sum 0}))
 
 (defn get-app-element []
   (gdom/getElement "app"))
 
+(defn navigation-el [text]
+  [:li {:class "navigation__list_el"} text]
+  )
+
 (defn navigation []
   [:nav {:class "navigation"}
    [:ul {:class "navigation__list"}
-    [:li {:class "navigation__list_el"} "Menu1"]
-    [:li {:class "navigation__list_el"} "Menu2"]
-    [:li {:class "navigation__list_el"} "Menu3"]
-    [:li {:class "navigation__list_el"} "Menu4"]]])
+    [navigation-el "Menu1"]
+    [navigation-el "Menu2"]
+    [navigation-el "Menu3"]
+    [navigation-el "Menu4"]
+    ]])
 
-(defn hello-world []
+(defn header []
   [:div {:class "wrapper"}
    [:div {:class "halo"}
     [:h1  {:class "header"} 
-     [:a {:class "header__logo" :href "./"} (:text @app-state)]
+     [:a {:class "header__logo" :href "./"} "Welcome"]
     ]
     [navigation]
-    ]
+   ]
+  ])
+
+(defn get-forecast! []                             
+   (swap! app-state assoc :sum(->  ( + (:first-number @app-state ) (:second-number @app-state )))))
+
+
+(defn body []
+  [:section
+   [:div {:class "add"}
+    [:input 
+     { 
+      :type "number"
+      :class "number-Input"
+      :value (:first-number @app-state)
+      :on-change #(swap! app-state assoc :first-number (-> % .-target .-value))
+      }] 
+    "+" 
+    [:input
+     {
+      :type "number"
+      :class "number-Input"
+      :value (:second-number @app-state)
+      :on-change #(swap! app-state assoc :second-number (-> % .-target .-value))
+     }] 
+    [:button {:on-click get-forecast!} "Go"]
+     [:div (:sum @app-state)]]
+    
    
-   [:p "Edit this in src/clojureproject/finance.cljs and watch it change!"]])
+  ]
+  
+  )
+
+(defn app []
+  [:div
+    [header]
+    [body]
+  ]
+ 
+)
 
 (defn mount [el]
-  (rdom/render [hello-world] el))
+  (rdom/render [app] el))
 
 (defn mount-app-element []
   (when-let [el (get-app-element)]
