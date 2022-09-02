@@ -2,7 +2,8 @@
   (:require
    [goog.dom :as gdom]
    [reagent.core :as reagent :refer [atom]]
-   [reagent.dom :as rdom]))
+   [reagent.dom :as rdom]
+   [clojure.edn :as edn]))
 
 
 
@@ -38,7 +39,7 @@
   ])
 
 (defn get-forecast! []                             
-   (swap! app-state assoc :sum(->  ( + (:first-number @app-state ) (:second-number @app-state )))))
+   (swap! app-state assoc :sum(->  ( + (edn/read-string(:first-number @app-state )) (edn/read-string(:second-number @app-state ))))))
 
 
 (defn body []
