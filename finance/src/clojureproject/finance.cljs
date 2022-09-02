@@ -38,32 +38,47 @@
    ]
   ])
 
-(defn get-forecast! []                             
-   (swap! app-state assoc :sum(->  ( + (edn/read-string(:first-number @app-state )) (edn/read-string(:second-number @app-state ))))))
+(defn sum-numbers []     
+  (swap! app-state assoc 
+         :sum(->  ( + 
+                   (:first-number @app-state ) 
+                   (:second-number @app-state )
+                  )
+             )
+  (swap! app-state assoc :first-number (-> 0))
+  (swap! app-state assoc :second-number (-> 0))
+  )
+)
+
+
+(defn hello-component [name]
+  [:p "hello, " name "!"])
+
+(defn lister [items]
+  [:ul
+   (for [item items]
+     ^{:key item} [:li "Item" item])])
+
+
+(defn numberInput [changeValue]
+    [:input {:type "number" :value (changeValue @app-state) 
+          :on-change (fn [e]
+                        (let [new-value (js/parseInt (-> e .-target .-value))]
+                         (swap! app-state assoc changeValue new-value)))}]
+  
+  )
 
 
 (defn body []
   [:section
    [:div {:class "add"}
-    [:input 
-     { 
-      :type "number"
-      :class "number-Input"
-      :value (:first-number @app-state)
-      :on-change #(swap! app-state assoc :first-number (-> % .-target .-value))
-      }] 
+    [numberInput :first-number]
     "+" 
-    [:input
-     {
-      :type "number"
-      :class "number-Input"
-      :value (:second-number @app-state)
-      :on-change #(swap! app-state assoc :second-number (-> % .-target .-value))
-     }] 
-    [:button {:on-click get-forecast!} "Go"]
+    [numberInput :second-number]
+    [:button {:on-click sum-numbers} "="]
      [:div (:sum @app-state)]]
-    
-   
+      [hello-component "Mirek"]
+      [lister [ 1 2 3]]
   ]
   
   )
