@@ -3,7 +3,8 @@
    [goog.dom :as gdom]
    [reagent.core :as reagent :refer [atom]]
    [reagent.dom :as rdom]
-   [clojure.edn :as edn]))
+   [clojure.edn :as edn]
+  [clojureproject.easytasks :refer [easy-tasks]]))
 
 
 
@@ -11,6 +12,9 @@
 (defonce app-state (atom {:first-number 0
                           :second-number 0 
                           :sum 0}))
+(def fucking-list
+  `(1 2 3 4 5 6 7)
+  )
 
 (defn get-app-element []
   (gdom/getElement "app"))
@@ -78,15 +82,14 @@
     [:button {:on-click sum-numbers} "="]
      [:div (:sum @app-state)]]
       [hello-component "Mirek"]
-      [lister [ 1 2 3]]
-  ]
-  
-  )
+      [lister fucking-list]
+  ])
 
 (defn app []
   [:div
     [header]
     [body]
+  [ easy-tasks]
   ]
  
 )
@@ -102,3 +105,5 @@
 (defn ^:after-load on-reload []
   (mount-app-element)
 )
+
+
