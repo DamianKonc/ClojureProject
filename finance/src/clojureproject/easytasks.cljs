@@ -81,6 +81,16 @@
 
 (println word-counts)
 
+(println (assoc-in {} [:foo :bar :baz] "quux"))
+
+(println (assoc-in {:tag "ul"
+           :children [{:tag "li"
+                       :id "first"}
+                      {:tag "li"
+                       :id "second"}]}
+          [:children 1 :class]
+          "last-item"))
+
 
 (defn easy-tasks []
   [:h1 "Easy tasks"])
