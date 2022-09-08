@@ -91,6 +91,8 @@
           [:children 1 :class]
           "last-item"))
 
+(println (update-in {} [:foo :bar] inc))
+
 
 (defn easy-tasks []
   [:h1 "Easy tasks"])

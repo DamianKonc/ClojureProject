@@ -84,11 +84,36 @@
       [hello-component "Mirek"]
       [lister fucking-list]
   ])
+;; ////////////
+(defn date-input []
+  [:div.input-wrapper                                      ;; <1>
+    [:label "Day"]
+    [:input {:type "date"}]])                              ;; <2>
+
+(defn time-input []
+  [:div.input-wrapper
+    [:label "Time (minutes)"]
+    [:input {:type "number" :min 0 :step 1}]])
+
+(defn submit-button []
+  [:div.actions
+    [:button {:type "submit"} "Submit"]])
+
+(defn form []
+  [:form.input-form
+    [date-input]                                           ;; <3>
+    [time-input]
+    [submit-button]])
+
+
+
+;; /////////////
 
 (defn app []
   [:div
     [header]
     [body]
+   [form]
   [ easy-tasks]
   ]
  
