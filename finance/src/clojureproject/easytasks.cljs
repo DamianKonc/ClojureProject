@@ -44,11 +44,11 @@
  
 ;;  (println result-2)
 
-(def tax-rate 0.079)
+;; (def tax-rate 0.079)
 
-(defn add-sales-tax [cart-item]
-  (let [{:keys [price]} cart-item]
-    (assoc cart-item :sales-tax (* price tax-rate))))
+;; (defn add-sales-tax [cart-item]
+;;   (let [{:keys [price]} cart-item]
+;;     (assoc cart-item :sales-tax (* price tax-rate))))
 
 ;; (def t-shirt {:name "T-shirt" :price 10})
 
@@ -58,40 +58,40 @@
 
 ;; (println taxed-tshirt)
 
-(def cart-item
-  `({:name "silicone shuffle" :price 11}
-    {:name "wood" :price 14.22}
-    {:name "gold" :price 154.12}))
+;; (def cart-item
+;;   `({:name "silicone shuffle" :price 11}
+;;     {:name "wood" :price 14.22}
+;;     {:name "gold" :price 154.12}))
 
 ;; (println cart-item)
 
-(def taxed-items (map add-sales-tax cart-item))
+;; (def taxed-items (map add-sales-tax cart-item))
 
 ;; (println taxed-items)
 
 ;; Create a seq of words
-(def words (clojure.string/split
-            "it was the best of times it was the worst of times"
-            #" "))
+;; (def words (clojure.string/split
+;;             "it was the best of times it was the worst of times"
+;;             #" "))
 
-(defn count-words [counts word]
-  (update-in counts [word] #(inc (or % 0))))
+;; (defn count-words [counts word]
+;;   (update-in counts [word] #(inc (or % 0))))
 
-(def word-counts (reduce count-words {} words))
+;; (def word-counts (reduce count-words {} words))
 
-(println word-counts)
+;; (println word-counts)
 
-(println (assoc-in {} [:foo :bar :baz] "quux"))
+;; (println (assoc-in {} [:foo :bar :baz] "quux"))
 
-(println (assoc-in {:tag "ul"
-           :children [{:tag "li"
-                       :id "first"}
-                      {:tag "li"
-                       :id "second"}]}
-          [:children 1 :class]
-          "last-item"))
+;; (println (assoc-in {:tag "ul"
+;;            :children [{:tag "li"
+;;                        :id "first"}
+;;                       {:tag "li"
+;;                        :id "second"}]}
+;;           [:children 1 :class]
+;;           "last-item"))
 
-(println (update-in {} [:foo :bar] inc))
+;; (println (update-in {} [:foo :bar] inc))
 
 
 (defn easy-tasks []
